@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+    background-color: #ddd;
+    background-image: url('bunga.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container-satu {
+    width: 800px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.kolom-utama {
+    flex: 2; 
+    padding: 0 20px; 
+}
+
+.sidebar-satu {
+    flex: 1; 
+    padding: 20px;
+}
+
+.sidebar-dua {
+    flex: 1; 
+    padding: 20px;
+}
