@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$dbname = "Belajar";  // sesuaikan dengan nama database kamu
+$dbname = "Belajar"; 
 $user = "postgres";
-$password = "12345678"; // ganti dengan password PostgreSQL kamu
+$password = "12345678"; 
 
 $conn = pg_connect("host=$host dbname=$dbname user=$user password=$password");
 
