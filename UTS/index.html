@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nippon Curry — Curry Jepang Autentik</title>
+  <meta name="description"
+    content="Website tentang curry Jepang — Chicken Katsu, Beef, dan Vegetarian Curry." />
+  <style>
+    @font-face {
+      font-family: "Poppins";
+      src: local("Poppins"), local("Poppins-Regular");
+    }
+  </style>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#home">🍛 Nippon Curry</a>
+      <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#resep">Resep</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero fade-in">
+    <img src="images/curry.jpg" alt="Curry Jepang" class="hero-image" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Rasakan Hangatnya Curry Jepang</h1>
+      <p class="lead">Dari Chicken Katsu hingga Beef Curry — rasa autentik yang menggugah selera.</p>
+      <a class="btn" href="#menu">Jelajahi Menu</a>
+    </div>1
+  </header>
+
+  <!-- MENU -->
+  <section id="menu" class="section menu-section fade-in">
+    <div class="container">
+      <div class="section-head">
+        <h2>Menu Kami</h2>
+        <p>Pilihan curry khas Jepang yang kami rekomendasikan.</p>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card fade-in" data-category="chicken">
+          <img src="images/curry.jpg" alt="Chicken Katsu Curry" />
+          <div class="card-body">
+            <h3>Chicken Katsu Curry</h3>
+            <p class="muted">Ayam katsu renyah disiram saus kari Jepang yang gurih dan lembut.</p>
+            <div class="card-meta">
+              <button class="btn-sm view-recipe" data-target="resep-chicken">Lihat Resep</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-card fade-in" data-category="beef">
+          <img src="images/beef.jpg" alt="Beef Curry" />
+          <div class="card-body">
+            <h3>Beef Curry</h3>
+            <p class="muted">Daging sapi empuk berpadu dengan kuah kari kaya rasa.</p>
+            <div class="card-meta">
+              <button class="btn-sm view-recipe" data-target="resep-beef">Lihat Resep</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-card fade-in" data-category="vegetarian">
+          <img src="images/sayur.jpg" alt="Vegetarian Curry" />
+          <div class="card-body">
+            <h3>Vegetarian Curry</h3>
+            <p class="muted">Kombinasi sayuran segar dengan saus kari lembut tanpa daging.</p>
+            <div class="card-meta">
+              <button class="btn-sm view-recipe" data-target="resep-vegetarian">Lihat Resep</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEP -->
+  <main id="resep" class="section fade-in">
+    <div class="container">
+      <!-- Chicken -->
+      <article class="recipe-card" id="resep-chicken" style="display:none;">
+        <header class="recipe-header">
+          <h2>Chicken Katsu Curry — Resep Lengkap</h2>
+          <p class="muted">Waktu: ±45 menit • Porsi: 2</p>
+        </header>
+        <div class="recipe-grid">
+          <div class="recipe-aside">
+            <h3>Bahan</h3>
+            <ul>
+              <li>2 dada ayam fillet</li>
+              <li>5 sdm tepung terigu</li>
+              <li>100 gr panko</li>
+              <li>1 blok bumbu kari Jepang</li>
+              <li>500 ml air</li>
+            </ul>
+            <h4>Info</h4>
+            <p class="muted">Level: Medium • Vegetarian: Tidak</p>
+          </div>
+          <div class="recipe-body">
+            <h3>Langkah</h3>
+            <ol>
+              <li>Bumbui ayam, lapisi tepung → telur → panko, goreng keemasan.</li>
+              <li>Tumis bawang dan wortel, masukkan air, masak hingga empuk.</li>
+              <li>Masukkan blok kari, aduk hingga mengental. Sajikan bersama nasi hangat.</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- Beef -->
+      <article class="recipe-card" id="resep-beef" style="display:none;">
+        <header class="recipe-header">
+          <h2>Beef Curry — Resep Lengkap</h2>
+          <p class="muted">Waktu: ±50 menit • Porsi: 2</p>
+        </header>
+        <div class="recipe-grid">
+          <div class="recipe-aside">
+            <h3>Bahan</h3>
+            <ul>
+              <li>300 gr daging sapi, potong dadu</li>
+              <li>2 wortel, potong dadu</li>
+              <li>1 kentang, potong dadu</li>
+              <li>1 blok bumbu kari Jepang</li>
+              <li>500 ml air</li>
+            </ul>
+            <h4>Info</h4>
+            <p class="muted">Level: Medium • Vegetarian: Tidak</p>
+          </div>
+          <div class="recipe-body">
+            <h3>Langkah</h3>
+            <ol>
+              <li>Tumis bawang bombay, masukkan daging sapi, masak hingga berubah warna.</li>
+              <li>Tambahkan wortel dan kentang, tuang air, masak hingga empuk.</li>
+              <li>Masukkan blok kari, aduk hingga kuah mengental. Sajikan hangat dengan nasi.</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- Vegetarian -->
+      <article class="recipe-card" id="resep-vegetarian" style="display:none;">
+        <header class="recipe-header">
+          <h2>Vegetarian Curry — Resep Lengkap</h2>
+          <p class="muted">Waktu: ±40 menit • Porsi: 2</p>
+        </header>
+        <div class="recipe-grid">
+          <div class="recipe-aside">
+            <h3>Bahan</h3>
+            <ul>
+              <li>1 wortel, potong dadu</li>
+              <li>1 kentang, potong dadu</li>
+              <li>100 gr buncis</li>
+              <li>1 blok bumbu kari Jepang</li>
+              <li>500 ml air</li>
+            </ul>
+            <h4>Info</h4>
+            <p class="muted">Level: Mudah • Vegetarian: Ya</p>
+          </div>
+          <div class="recipe-body">
+            <h3>Langkah</h3>
+            <ol>
+              <li>Tumis bawang, masukkan sayuran, tuang air, masak hingga sayuran empuk.</li>
+              <li>Masukkan blok kari, aduk rata hingga mengental. Sajikan dengan nasi hangat.</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+
+  <!-- ABOUT -->
+<section id="tentang" class="section about-section fade-in">
+  <div class="about-text-small">
+    <h2>Tentang Curry Jepang</h2>
+    <p>
+      <strong>Curry Jepang (Kare)</strong> adalah hidangan populer di Jepang dengan rasa lembut, gurih,
+      dan sedikit manis. Berbeda dari curry India yang kuat dan pedas, curry Jepang menghadirkan cita rasa
+      autentik dengan bahan segar dan teknik masak khas Jepang.
+    </p>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-desc">Special curry Jepang — Nikmati cita rasa autentik dari varian Curry.</p>
+      <p class="footer-copy">2025 Nippon Curry. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
