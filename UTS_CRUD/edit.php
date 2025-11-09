@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 include 'auth_check.php';
 include 'koneksi.php';
@@ -92,3 +93,99 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 </body>
 </html>
+=======
+<?php
+require_once 'auth_check.php';
+require_once __DIR__ . '/dir_/koneksi.php';
+
+$id = $_GET['id'] ?? 0;
+$stmt = $pdo->prepare("SELECT * FROM menu WHERE id = :id");
+$stmt->execute(['id' => $id]);
+$data = $stmt->fetch(PDO::FETCH_ASSOC);
+if (!$data) die("Data tidak ditemukan!");
+
+if (isset($_POST['update'])) {
+    $nama = $_POST['nama'];
+    $kategori = $_POST['kategori'];
+    $deskripsi = $_POST['deskripsi'];
+    $bahan = $_POST['bahan'];
+    $langkah = $_POST['langkah'];
+
+    $gambar = $_FILES['gambar']['name'] ?? '';
+    $tmp = $_FILES['gambar']['tmp_name'] ?? '';
+    $folder = "upload/";
+
+    if ($gambar) {
+        move_uploaded_file($tmp, $folder . $gambar);
+    } else {
+        $gambar = $data['gambar'];
+    }
+
+    $stmt = $pdo->prepare("UPDATE menu SET nama=:n, kategori=:k, deskripsi=:d, bahan=:b, langkah=:l, gambar=:g WHERE id=:id");
+    $stmt->execute([
+        'n' => $nama,
+        'k' => $kategori,
+        'd' => $deskripsi,
+        'b' => $bahan,
+        'l' => $langkah,
+        'g' => $gambar,
+        'id' => $id
+    ]);
+
+    header("Location: dashboard.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Edit Menu</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color:#f8fafc;font-family:'Segoe UI',sans-serif;">
+<nav class="navbar navbar-light bg-white shadow-sm px-4">
+  <a class="navbar-brand fw-bold">Edit Menu</a>
+  <a href="dashboard.php" class="btn btn-outline-secondary btn-sm">Kembali</a>
+</nav>
+
+<div class="container mt-4">
+  <div class="card shadow-sm p-4">
+    <h4 class="mb-3">Form Edit Menu</h4>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Nama</label>
+          <input type="text" name="nama" value="<?= htmlspecialchars($data['nama']); ?>" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Kategori</label>
+          <input type="text" name="kategori" value="<?= htmlspecialchars($data['kategori']); ?>" class="form-control" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label>Deskripsi</label>
+        <textarea name="deskripsi" class="form-control" rows="3"><?= htmlspecialchars($data['deskripsi']); ?></textarea>
+      </div>
+      <div class="mb-3">
+        <label>Bahan</label>
+        <textarea name="bahan" class="form-control" rows="3"><?= htmlspecialchars($data['bahan']); ?></textarea>
+      </div>
+      <div class="mb-3">
+        <label>Langkah</label>
+        <textarea name="langkah" class="form-control" rows="3"><?= htmlspecialchars($data['langkah']); ?></textarea>
+      </div>
+      <div class="mb-3">
+        <label>Gambar</label>
+        <input type="file" name="gambar" class="form-control">
+        <p class="small mt-2">Gambar saat ini:</p>
+        <img src="upload/<?= htmlspecialchars($data['gambar']); ?>" width="100" class="rounded shadow-sm">
+      </div>
+      <button name="update" class="btn btn-primary">Update</button>
+      <a href="dashboard.php" class="btn btn-secondary">Batal</a>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+>>>>>>> e37a2ad (crud selesai)

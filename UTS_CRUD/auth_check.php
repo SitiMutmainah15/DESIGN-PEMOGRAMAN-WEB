@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 
@@ -8,3 +9,12 @@ if (!isset($_SESSION['admin'])) {
     exit;
 }
 ?>
+=======
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+>>>>>>> e37a2ad (crud selesai)
